@@ -1,5 +1,13 @@
-{% extends "admin/base_site.html" %}
 {% load i18n static %}
+{% extends "admin/base.html" %}
+
+{% block title %}Administracja Fishster | logowanie{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Administracja Fishster</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
 
 {% block extrastyle %}
     {{ block.super }}
