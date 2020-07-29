@@ -65,7 +65,7 @@ class EmailDevice(ThrottlingMixin, SideChannelDevice):
                   settings.OTP_EMAIL_SENDER,
                   [self.email or self.user.email])
 
-        message = _("sent by email")
+        message = _("wysłano na email")
 
         return message
 
