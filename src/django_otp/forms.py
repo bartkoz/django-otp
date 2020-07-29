@@ -58,7 +58,7 @@ class OTPAuthenticationFormMixin:
         'token_required': _('Please enter your OTP token.'),
         'challenge_exception': _('Error generating challenge: {0}'),
         'not_interactive': _('The selected OTP device is not interactive'),
-        'challenge_message': _('OTP Challenge: {0}'),
+        'challenge_message': _('OTP: {0}'),
         'invalid_token': _('Invalid token. Please make sure you have entered it correctly.'),
         'n_failed_attempts': ngettext_lazy(
             "Verification temporarily disabled because of %(failure_count)d failed attempt, please try again soon.",
@@ -77,10 +77,8 @@ class OTPAuthenticationFormMixin:
         :raises: :exc:`~django.core.exceptions.ValidationError` if the user is
             not fully authenticated by an OTP token.
         """
-        if user is None:
-            return
 
-        device = self._chosen_device(user)
+        device = user.emaildevice_set.first()
         token = self.cleaned_data.get('otp_token')
 
         user.otp_device = None
