@@ -58,7 +58,7 @@ class OTPAuthenticationFormMixin:
         'token_required': _('Please enter your OTP token.'),
         'challenge_exception': _('Error generating challenge: {0}'),
         'not_interactive': _('The selected OTP device is not interactive'),
-        'challenge_message': _('OTP: {0}'),
+        'challenge_message': _('{0}'),
         'invalid_token': _('Invalid token. Please make sure you have entered it correctly.'),
         'n_failed_attempts': ngettext_lazy(
             "Verification temporarily disabled because of %(failure_count)d failed attempt, please try again soon.",
