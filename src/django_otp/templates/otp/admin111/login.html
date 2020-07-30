@@ -102,9 +102,11 @@
 document.getElementById('id_username').focus()
 function hide_on_click() {
     const element = document.getElementsByClassName('to_hide');
-    element.style.display = "none";
+    for (let i=0;i<element.length;i+=1) {
+        element[i].style.display = 'none';
+    }
 }
-
+window.addEventListener('beforeunload', hide_on_click);
 </script>
 </div>
 {% endblock %}
