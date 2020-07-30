@@ -55,14 +55,14 @@ class OTPAuthenticationFormMixin:
 
     """
     otp_error_messages = {
-        'token_required': _('Please enter your OTP token.'),
+        'token_required': _('Podaj swój kod OTP.'),
         'challenge_exception': _('Error generating challenge: {0}'),
         'not_interactive': _('The selected OTP device is not interactive'),
         'challenge_message': _('{0}'),
-        'invalid_token': _('Invalid token. Please make sure you have entered it correctly.'),
+        'invalid_token': _('Podany kod wygasł lub nie jest prawidłowy.'),
         'n_failed_attempts': ngettext_lazy(
-            "Verification temporarily disabled because of %(failure_count)d failed attempt, please try again soon.",
-            "Verification temporarily disabled because of %(failure_count)d failed attempts, please try again soon.",
+            "Weryfikacja czasowo dezaktywoana z powodu %(failure_count)d nieprawidłowych kodów. Spróbuj ponownie później.",
+            "Weryfikacja czasowo dezaktywoana z powodu %(failure_count)d nieprawidłowych kodów. Spróbuj ponownie później.",
             "failure_count"),
         'verification_not_allowed': _("Verification of the token is currently disabled"),
     }
