@@ -88,23 +88,18 @@
 <input type="submit" name="otp_challenge" value="{% trans 'Log in' %}"/>
 {% endif %}
 {% if form.get_user %}
-    <div onload="hide_on_click()">
+    <div>
+<script type="text/javascript">
+    const element = document.getElementsByClassName('to_hide');
+    for (let i=0;i<element.length;i+=1) {
+        element[i].style.display = 'none';
+}
+</script>
     <label for="id_otp_token" class="required">{% trans 'Token:' %}</label> {{ form.otp_token }}
   <input type="submit" value="{% trans 'Log in' %}" />
 <input type="submit" name="otp_challenge" value="{% trans 'Regenerate OTP' %}" />
 {% endif %}
   </div>
 </form>
-
-<script type="text/javascript">
-document.getElementById('id_username').focus()
-function hide_on_click() {
-    const element = document.getElementsByClassName('to_hide');
-    for (let i=0;i<element.length;i+=1) {
-        element[i].style.display = 'none';
-    }
-}
-window.addEventListener('beforeunload', hide_on_click);
-</script>
 </div>
 {% endblock %}
