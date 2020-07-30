@@ -61,15 +61,20 @@
 {% endif %}
 
 <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
-<!--  <div class="form-row">-->
-<!--    {{ form.username.errors }}-->
-<!--    {{ form.username.label_tag }} {{ form.username }}-->
-<!--  </div>-->
-<!--  <div class="form-row">-->
-<!--    {{ form.password.errors }}-->
-<!--    {{ form.password.label_tag }} {{ form.password }}-->
-<!--    <input type="hidden" name="next" value="{{ next }}" />-->
-<!--  </div>-->
+  <div class="form-row to_hide">
+    {{ form.username.errors }}
+    {{ form.username.label_tag }} {{ form.username }}
+  </div>
+  <div class="form-row to_hide">
+    {{ form.password.errors }}
+    {{ form.password.label_tag }} {{ form.password }}
+    <input type="hidden" name="next" value="{{ next }}" />
+  </div>
+  {% if form.get_user %}
+  <div class="form-row">
+    {{ form.otp_device.errors }}
+  </div>
+  {% endif %}
   <div class="form-row">
     {{ form.otp_token.errors }}
   </div>
@@ -80,16 +85,7 @@
   </div>
   {% endif %}
 {% if not form.get_user %}
-<div class="form-row">
-{{ form.username.errors }}
-{{ form.username.label_tag }} {{ form.username }}
-</div>
-<div class="form-row">
-{{ form.password.errors }}
-{{ form.password.label_tag }} {{ form.password }}
-<input type="hidden" name="next" value="{{ next }}" />
-</div>
-<input type="submit" name="otp_challenge" value="{% trans 'Log in' %}" />
+<input type="submit" name="otp_challenge" value="{% trans 'Log in' %}"  onclick="hide_on_click()"/>
 {% endif %}
 <div>
 {% if form.get_user %}
@@ -104,6 +100,11 @@
 
 <script type="text/javascript">
 document.getElementById('id_username').focus()
+function hide_on_click() {
+    const element = document.getElementsByClassName('to_hide');
+    element.style.display = "none";
+}
+
 </script>
 </div>
 {% endblock %}
