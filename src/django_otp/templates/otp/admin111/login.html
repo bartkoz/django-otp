@@ -85,14 +85,12 @@
   </div>
   {% endif %}
 {% if not form.get_user %}
-<input type="submit" name="otp_challenge" value="{% trans 'Log in' %}"  onclick="hide_on_click()"/>
+<input type="submit" name="otp_challenge" value="{% trans 'Log in' %}"/>
 {% endif %}
-<div>
 {% if form.get_user %}
-  <label for="id_otp_token" class="required">{% trans 'Token:' %}</label> {{ form.otp_token }}
+    <div onload="hide_on_click()">
+    <label for="id_otp_token" class="required">{% trans 'Token:' %}</label> {{ form.otp_token }}
   <input type="submit" value="{% trans 'Log in' %}" />
-{% endif %}
-    {% if form.get_user %}
 <input type="submit" name="otp_challenge" value="{% trans 'Regenerate OTP' %}" />
 {% endif %}
   </div>
