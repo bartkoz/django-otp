@@ -65,7 +65,8 @@ class EmailDevice(ThrottlingMixin, SideChannelDevice):
                   settings.OTP_EMAIL_SENDER,
                   [self.email or self.user.email])
 
-        message = _("Kod do autoryzacji OTP został wysłany na email. Sprawdź swoją skrzynkę.")
+        message = _("Twoje konto chronione jest autoryzacją dwustopniową. "
+                    "Jednorazowy kod do autoryzacji (OTP) został wysłany na email.")
 
         return message
 
