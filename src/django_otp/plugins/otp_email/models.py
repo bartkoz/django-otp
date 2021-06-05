@@ -48,17 +48,22 @@ class EmailDevice(ThrottlingMixin, SideChannelDevice):
     def get_throttle_factor(self):
         return settings.OTP_EMAIL_THROTTLE_FACTOR
 
-    def generate_challenge(self):
+    def generate_challenge(self, extra_context=None):
         """
         Generates a random token and emails it to the user.
+
+        :param extra_context: Additional context variables for rendering the
+            email template.
+        :type extra_context: dict
+
         """
         self.generate_token(valid_secs=settings.OTP_EMAIL_TOKEN_VALIDITY)
 
-        context = {'token': self.token}
+        context = {'token': self.token, **(extra_context or {})}
         if settings.OTP_EMAIL_BODY_TEMPLATE:
             body = Template(settings.OTP_EMAIL_BODY_TEMPLATE).render(Context(context))
         else:
-            body = get_template('otp/email/token.txt').render(context)
+            body = get_template(settings.OTP_EMAIL_BODY_TEMPLATE_PATH).render(context)
 
         send_mail(settings.OTP_EMAIL_SUBJECT,
                   body,

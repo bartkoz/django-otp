@@ -56,7 +56,8 @@ django.conf.settings.configure(
         'django_otp.plugins.otp_totp',
         'django_otp.plugins.otp_static',
         'django_otp.plugins.otp_email',
-    ]
+    ],
+    SECRET_KEY='properly-configured',
 )
 django.setup()
 
@@ -87,7 +88,7 @@ copyright = '2012, Peter Sagerson'
 # built documents.
 #
 # The full version, including alpha/beta/rc tags.
-release = '0.9.3'
+release = '1.0.6'
 
 # The short X.Y version.
 version = '.'.join(release.split('.')[:2])

@@ -1,4 +1,66 @@
-vv0.9.3 - June 23, 2020 - June 18, 2020 - Admin fix
+v1.0.6 - May 28, 2021 - Email customization
+--------------------------------------------------------------------------------
+
+- `#82`_: Add ability to pass extra context when rendering
+  :class:`~django_otp.plugins.otp_email.models.EmailDevice` templates.
+
+.. _#82: https://github.com/django-otp/django-otp/issues/82
+
+
+
+v1.0.5 - May 08, 2021 - config_url fix
+--------------------------------------------------------------------------------
+
+- `#77`_: Force username to a string in `config_url`. Note that this might not
+  produce a very human-friendly result, but it shouldn't throw an exception.
+
+.. _#77: https://github.com/django-otp/django-otp/issues/77
+
+
+v1.0.4 - April 28, 2021 - Dark mode fix
+--------------------------------------------------------------------------------
+
+- `#76`_: Django 3.2 supports the prefers-color-scheme media query, so we need
+  to force a white background for QR codes.
+
+.. _#76: https://github.com/django-otp/django-otp/issues/76
+
+
+v1.0.3 - April 03, 2021 - Email body template path setting
+--------------------------------------------------------------------------------
+
+- `#71`_: Provide time at which throttling lock expires.
+
+.. _#71: https://github.com/django-otp/django-otp/issues/71
+
+
+v1.0.2 - October 23, 2020 - Email body template path setting
+--------------------------------------------------------------------------------
+
+- Added a setting to load the email body template from a template file.
+
+
+v1.0.1 - October 06, 2020 - Add French translations
+--------------------------------------------------------------------------------
+
+- Added contributed French string translations.
+
+
+v1.0.0 - August 13, 2020 - Update supported Django verisons.
+--------------------------------------------------------------------------------
+
+- Dropped support for Django < 2.2.
+
+
+v0.9.4 - August 05, 2020 - Django 3.1 support
+--------------------------------------------------------------------------------
+
+- `#49`_: Hide the navigation sidebar on the login page.
+
+.. _#49: https://github.com/django-otp/django-otp/issues/49
+
+
+v0.9.3 - June 23, 2020 - June 18, 2020 - Admin fix
 --------------------------------------------------------------------------------
 
 - Stricter authorization checks for qrcodes in the admin interface.
